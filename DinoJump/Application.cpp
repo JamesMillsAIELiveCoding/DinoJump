@@ -1,6 +1,7 @@
 #include "Application.h"
 
 #include <raylib.h>
+#include "RayGizmos.h"
 #include <cstdlib>
 
 #include "Assets.h"
@@ -52,6 +53,8 @@ void Application::Draw()
     ClearBackground(RAYWHITE);
 
     m_gameStateManager->Draw();
+
+    RayGizmos::Draw();
 
     EndDrawing();
 }

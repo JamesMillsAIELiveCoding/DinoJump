@@ -2,10 +2,11 @@
 
 #include "Config.h"
 #include "IGameState.h"
+#include "RayGizmos.h"
 #include "PlayState.h"
 
 Player::Player(Vector2 _start, Vector2 _size, Texture2D _texture, IGameState* _state)
-	: IEntity(_start, _size, _texture, _state) {}
+	: IEntity(_start, _size, _texture, _state, 0) {}
 
 void Player::Load()
 {
@@ -47,6 +48,8 @@ void Player::Draw()
 	destRect.width = srcRect.width * m_size.x;
 	destRect.height = srcRect.height * m_size.x;
 
+	RayGizmos::color = GREEN;
+	RayGizmos::DrawRectCollider(destRect);
 	DrawTexturePro(m_texture, srcRect, destRect, Vector2{ 0, 0 }, 0, RAYWHITE);
 }
 

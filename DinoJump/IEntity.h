@@ -7,8 +7,8 @@ class IGameState;
 class IEntity
 {
 public:
-	IEntity(Vector2 _pos, Vector2 _size, Texture2D _color, IGameState* _state) 
-		: m_pos(_pos), m_size(_size), m_texture(_color), m_state(_state) {}
+	IEntity(Vector2 _pos, Vector2 _size, Texture2D _color, IGameState* _state, float _rotation) 
+		: m_pos(_pos), m_size(_size), m_texture(_color), m_state(_state), m_rotation(_rotation) {}
 
 	virtual void Load() = 0;
 	virtual void Update(float _dt) = 0;
@@ -18,6 +18,7 @@ public:
 protected:
 	Vector2 m_pos;
 	Vector2 m_size;
+	float m_rotation;
 	Texture2D m_texture;
 	IGameState* m_state;
 
