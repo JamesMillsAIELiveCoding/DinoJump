@@ -172,7 +172,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="SoundRegistry.cpp" />
+    <ClCompile Include="TextureRegistry.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="Ground.cpp" />
@@ -183,7 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="Assets.h" />
+    <ClInclude Include="AssetRegistry.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="IEntity.h" />
@@ -192,6 +193,8 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="RayGizmos.h" />
+    <ClInclude Include="SoundRegistry.h" />
+    <ClInclude Include="TextureRegistry.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config.cfg" />

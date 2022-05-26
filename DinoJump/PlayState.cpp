@@ -1,14 +1,14 @@
 #include "PlayState.h"
 
 #include "Player.h"
-#include "Assets.h"
+#include "TextureRegistry.h"
 #include "Ground.h"
 
 #include <raylib.h>
 
 PlayState::PlayState(Application* _app) : IGameState(_app)
 {
-	Texture2D playerTex = Assets::GetTexture("dino_run");
+	Texture2D playerTex = textureRegistry.GetAsset("dino_run");
 	m_player = new Player(
 		Vector2 { 30, (float)_app->windowHeight - playerTex.height - 30 }, 
 		Vector2 { 1, 1 }, 
@@ -20,7 +20,7 @@ PlayState::PlayState(Application* _app) : IGameState(_app)
 
 void PlayState::Load()
 {
-	Texture2D groundTex = Assets::GetTexture("ground");
+	Texture2D groundTex = textureRegistry.GetAsset("ground");
 	m_grounds.push_back(CreateGround(Vector2{ 0, (float)app->windowHeight - groundTex.height * 2 }));
 	m_grounds.push_back(CreateGround(Vector2{ (float)groundTex.width, (float)app->windowHeight - groundTex.height * 2 }));
 		
@@ -67,7 +67,7 @@ void PlayState::Unload()
 
 Ground* PlayState::CreateGround(Vector2 _pos)
 {
-	Texture2D groundTex = Assets::GetTexture("ground");
+	Texture2D groundTex = textureRegistry.GetAsset("ground");
 	Ground* ground = new Ground(_pos, Vector2{1, 1}, groundTex, this);
 
 	ground->Load();

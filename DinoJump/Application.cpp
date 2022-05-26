@@ -4,7 +4,9 @@
 #include "RayGizmos.h"
 #include <cstdlib>
 
-#include "Assets.h"
+#include "TextureRegistry.h"
+#include "SoundRegistry.h"
+
 #include "Config.h"
 #include "GameStateManager.h"
 
@@ -27,7 +29,8 @@ void Application::Load()
     InitWindow(windowWidth, windowHeight, config.GetTextValue(PROGRAM_CATEGORY, "name"));
     SetTargetFPS(60);
 
-    Assets::Load();
+    textureRegistry.Load();
+    soundRegistry.Load();
     SetupStates();
 }
 
@@ -60,6 +63,9 @@ void Application::Draw()
 
 void Application::Unload()
 {
+    textureRegistry.Unload();
+    soundRegistry.Unload();
+
 	CloseWindow();
 }
 

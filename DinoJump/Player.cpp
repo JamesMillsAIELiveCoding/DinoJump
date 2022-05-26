@@ -6,6 +6,8 @@
 #include "PlayState.h"
 #include <raylib.h>
 
+#include "SoundRegistry.h"
+
 Player::Player(Vector2 _start, Vector2 _size, Texture2D _texture, IGameState* _state)
 	: IEntity(_start, _size, _texture, _state, 0) {}
 
@@ -55,6 +57,7 @@ void Player::UpdateVerticalVelocity(float _dt)
 	if (IsKeyPressed(KEY_SPACE) && m_grounded)
 	{
 		m_yVelocity = m_jumpPower;
+		PlaySound(soundRegistry.GetAsset("jump_sfx"));
 	}
 	else if (!m_grounded)
 	{
