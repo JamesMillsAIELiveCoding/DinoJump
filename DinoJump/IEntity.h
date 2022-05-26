@@ -15,6 +15,10 @@ public:
 	virtual void Draw() = 0;
 	virtual void Unload() = 0;
 
+	Vector2 GetPos() const { return m_pos; }
+	Vector2 GetSize() const { return m_size; }
+	Texture2D GetTexture() const { return m_texture; }
+
 protected:
 	Vector2 m_pos;
 	Vector2 m_size;

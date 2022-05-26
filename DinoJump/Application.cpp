@@ -13,6 +13,8 @@
 Application::Application()
 {
     m_gameStateManager = new GameStateManager();
+    windowWidth = config.GetIntValue(PROGRAM_CATEGORY, "width");
+    windowHeight = config.GetIntValue(PROGRAM_CATEGORY, "height");
 }
 
 Application::~Application()
@@ -22,10 +24,7 @@ Application::~Application()
 
 void Application::Load()
 {
-    config.Load();
-    windowWidth = config.GetIntValue("Program", "width");
-    windowHeight = config.GetIntValue("Program", "height");
-    InitWindow(windowWidth, windowHeight, config.GetTextValue("Program", "name"));
+    InitWindow(windowWidth, windowHeight, config.GetTextValue(PROGRAM_CATEGORY, "name"));
     SetTargetFPS(60);
 
     Assets::Load();

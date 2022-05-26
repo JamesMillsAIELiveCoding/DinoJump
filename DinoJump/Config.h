@@ -1,17 +1,30 @@
 #pragma once
 
+#define PROGRAM_CATEGORY "Program"
+#define PLAYER_CATEGORY "Player"
+#define GROUND_CATEGORY "Ground"
+
 #include <string>
 #include <map>
 
+using std::string;
+using std::map;
+
+typedef string GroupID;
+typedef map<string, string> ConfigSet;
+
 struct Config
 {
-	int GetIntValue(const char* _category, const char* _id);
-	float GetFloatValue(const char* _category, const char* _id);
-	const char* GetTextValue(const char* _category, const char* _id);
-	void Load();
+	Config(string _filePath) : m_filePath(_filePath) { Load(); }
+
+	int GetIntValue(string _group, string _id);
+	float GetFloatValue(string _group, string _id);
+	const char* GetTextValue(string _group, string _id);
 
 private:
-	std::map<std::string, std::map<std::string, std::string>> values;
+	void Load();
+	string m_filePath;
+	map<GroupID, ConfigSet> m_configData;
 
 };
 

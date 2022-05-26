@@ -2,7 +2,12 @@
 
 #include <raylib.h>
 
-std::map<const char*, Texture2D> Assets::textures;
+#include <iostream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
+std::map<string, Texture2D> Assets::textures;
 
 void Assets::Load()
 {
@@ -11,15 +16,21 @@ void Assets::Load()
 
 void Assets::LoadTextures()
 {
-	textures["dino_death"] = LoadTexture("assets/dino_death.png");
-	textures["dino_duck"] = LoadTexture("assets/dino_duck.png");
-	textures["dino_run"] = LoadTexture("assets/dino_run.png");
-	textures["flying_dino_evil"] = LoadTexture("assets/flying_dino_evil.png");
-	textures["game_over"] = LoadTexture("assets/game_over.png");
-	textures["ground"] = LoadTexture("assets/ground.png");
-	textures["large_cacti"] = LoadTexture("assets/large_cacti.png");
-	textures["small_cacti"] = LoadTexture("assets/small_cacti.png");
-	textures["reset_button"] = LoadTexture("assets/reset_button.png");
+	string path = "\\assets\\textures";
+	fs::path current = fs::current_path();
+	current.concat(path.begin(), path.end());
+	for (const auto& entry : fs::directory_iterator(current.c_str()))
+	{
+		string filePath = entry.path().u8string();
+		string fileName = filePath;
+
+		size_t index = fileName.find_last_of('\\') + 1;
+		fileName = fileName.erase(0, index);
+		index = fileName.find_last_of('.');
+		fileName = fileName.erase(index, fileName.size() - index);
+
+		textures[fileName] = LoadTexture(filePath.c_str());
+	}
 }
 
 Texture2D Assets::GetTexture(const char* _id)

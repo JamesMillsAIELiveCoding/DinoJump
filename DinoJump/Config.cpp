@@ -3,36 +3,66 @@
 #include <fstream>
 #include <sstream>
 
-Config config;
+Config config = Config("config.cfg");
 
 using std::ifstream;
 using std::ios;
 
-int Config::GetIntValue(const char* _category, const char* _id)
+int Config::GetIntValue(string _group, string _id)
 {
-	return atoi(values[_category][_id].c_str());
+	if (m_configData.find(_group) != m_configData.end())
+	{
+		ConfigSet& set = m_configData[_group];
+
+		if (set.find(_id) != set.end())
+		{
+			return atoi(set[_id].c_str());
+		}
+	}
+
+	return 0;
 }
 
-float Config::GetFloatValue(const char* _category, const char* _id)
+float Config::GetFloatValue(string _group, string _id)
 {
-	return atof(values[_category][_id].c_str());
+	if (m_configData.find(_group) != m_configData.end())
+	{
+		ConfigSet& set = m_configData[_group];
+
+		if (set.find(_id) != set.end())
+		{
+			return atof(set[_id].c_str());
+		}
+	}
+
+	return 0;
 }
 
-const char* Config::GetTextValue(const char* _category, const char* _id)
+const char* Config::GetTextValue(string _group, string _id)
 {
-	return values[_category][_id].c_str();
+	if (m_configData.find(_group) != m_configData.end())
+	{
+		ConfigSet& set = m_configData[_group];
+
+		if (set.find(_id) != set.end())
+		{
+			return set[_id].c_str();
+		}
+	}
+
+	return 0;
 }
 
 void Config::Load()
 {
-	ifstream configFile("config.cfg");
+	ifstream configFile(m_filePath);
 
 	std::string line;
 	std::string lastGroup;
 
 	while (std::getline(configFile, line))
 	{
-		if (line.length() == 0)
+		if (line.length() == 0 || line[0] == '#')
 			continue;
 
 		if (line[0] == '[')
@@ -51,7 +81,7 @@ void Config::Load()
 			std::string val = line;
 			val.erase(0, index + 1);
 
-			values[lastGroup][id] = val;
+			m_configData[lastGroup][id] = val;
 		}
 	}
 }

@@ -1,6 +1,9 @@
 #pragma once
 
 #include <map>
+#include <string>
+
+using std::string;
 
 struct Texture2D;
 
@@ -12,6 +15,6 @@ public:
 
 private:
 	static void LoadTextures();
-	static std::map<const char*, Texture2D> textures;
+	static std::map<string, Texture2D> textures;
 
 };
