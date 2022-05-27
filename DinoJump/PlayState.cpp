@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "TextureRegistry.h"
 #include "Ground.h"
+#include "Physics.h"
 
 #include <raylib.h>
 
@@ -29,6 +30,8 @@ void PlayState::Load()
 
 void PlayState::Update(float _dt)
 {
+	Physics::UpdateCollisions();
+
 	for (int i = 0; i < m_grounds.size(); i++)
 	{
 		Ground* ground = m_grounds.at(i);
@@ -62,6 +65,8 @@ void PlayState::Draw()
 
 void PlayState::Unload()
 {
+	Physics::Cleanup();
+
 	m_player->Unload();
 }
 

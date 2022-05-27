@@ -2,14 +2,16 @@
 
 #include "Config.h"
 #include "IGameState.h"
-#include "RayGizmos.h"
 #include "PlayState.h"
 #include <raylib.h>
 
 #include "SoundRegistry.h"
 
 Player::Player(Vector2 _start, Vector2 _size, Texture2D _texture, IGameState* _state)
-	: IEntity(_start, _size, _texture, _state, 0) {}
+	: IEntity(_start, _size, _texture, _state, 0) 
+{
+	Physics::AddEntity(this);
+}
 
 void Player::Load()
 {
@@ -42,12 +44,31 @@ void Player::Draw()
 	destRect.width = srcRect.width * m_size.x;
 	destRect.height = srcRect.height * m_size.x;
 
-	RayGizmos::color = GREEN;
-	RayGizmos::DrawRectCollider(destRect);
 	DrawTexturePro(m_texture, srcRect, destRect, Vector2{ 0, 0 }, 0, RAYWHITE);
 }
 
 void Player::Unload()
+{
+
+}
+
+Rectangle* Player::GetCollider()
+{
+	Rectangle srcRect;
+	srcRect.x = m_frameIndex * 80 + 8 * m_frameIndex;
+	srcRect.y = 0;
+	srcRect.width = 80;
+	srcRect.height = 86;
+	Rectangle destRect;
+	destRect.x = m_pos.x;
+	destRect.y = m_pos.y;
+	destRect.width = srcRect.width * m_size.x;
+	destRect.height = srcRect.height * m_size.x;
+
+	return &destRect;
+}
+
+void Player::OnCollision(IEntity* _other)
 {
 
 }

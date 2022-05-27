@@ -15,6 +15,9 @@ public:
 	virtual void Draw();
 	virtual void Unload();
 
+	virtual Rectangle* GetCollider() override;
+	virtual void OnCollision(IEntity* _other) override;
+
 private:
 	void UpdateVerticalVelocity(float _dt);
 	void UpdateAnimation(float _dt);
