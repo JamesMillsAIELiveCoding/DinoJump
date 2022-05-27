@@ -1,5 +1,6 @@
 #pragma once
 
+class Button;
 class GameStateManager;
 
 class Application

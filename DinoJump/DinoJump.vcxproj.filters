@@ -28,6 +28,30 @@
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{741f3fee-f2f6-4831-814d-30296b48e3db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\StateManagement">
+      <UniqueIdentifier>{550ed1bd-ac2a-4690-b81d-fa3bdfa4858a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{509a03b8-db0a-4463-8f84-29e85d956312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Registries">
+      <UniqueIdentifier>{586e30fc-cadf-4a21-9c1c-e6f210a68168}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Textures">
+      <UniqueIdentifier>{51025295-f72d-45bb-88f4-5cba5b28408e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Sounds">
+      <UniqueIdentifier>{600f7b4f-26de-40c1-bd00-2b016ffbf92a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Fonts">
+      <UniqueIdentifier>{c5672196-f21e-4a0f-98ac-13b69b5ad871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{b6c854ce-d4d2-454e-845f-9d453cfce199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{03462eec-1568-442f-8ad7-eeeb620c6a1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -37,34 +61,40 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Config.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="RayGizmos.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="Ground.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameStateManager.cpp">
+      <Filter>Source Files\StateManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Source Files\StateManagement</Filter>
     </ClCompile>
     <ClCompile Include="TextureRegistry.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Registries</Filter>
     </ClCompile>
     <ClCompile Include="SoundRegistry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Registries</Filter>
     </ClCompile>
     <ClCompile Include="FontRegistry.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Registries</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files\StateManagement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,8 +140,61 @@
     <ClInclude Include="Physics.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Header Files\StateManagement</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="config.cfg" />
+    <None Include="config.cfg">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\fonts\Roboto-Thin.ttf">
+      <Filter>Resource Files\Fonts</Filter>
+    </Font>
+    <Font Include="assets\fonts\Roboto-Regular.ttf">
+      <Filter>Resource Files\Fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sounds\jump_sfx.mp3">
+      <Filter>Resource Files\Sounds</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\dino_death.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\dino_duck.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\dino_run.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\flying_dino_evil.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\game_over.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\ground.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\large_cacti.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\reset_button.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\small_cacti.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
+    <Image Include="assets\textures\sprites.png">
+      <Filter>Resource Files\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

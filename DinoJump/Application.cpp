@@ -13,6 +13,13 @@
 
 #include "PlayState.h"
 
+#include "Button.h"
+
+void OnClick()
+{
+
+}
+
 Application::Application()
 {
     m_gameStateManager = new GameStateManager();

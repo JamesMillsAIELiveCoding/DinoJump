@@ -172,7 +172,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="FontRegistry.cpp" />
+    <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="SoundRegistry.cpp" />
     <ClCompile Include="TextureRegistry.cpp" />
@@ -187,12 +189,14 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="AssetRegistry.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="FontRegistry.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="IEntity.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="IGameState.h" />
+    <ClInclude Include="MenuState.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
@@ -202,6 +206,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="config.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\fonts\Roboto-Regular.ttf" />
+    <Font Include="assets\fonts\Roboto-Thin.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sounds\jump_sfx.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\dino_death.png" />
+    <Image Include="assets\textures\dino_duck.png" />
+    <Image Include="assets\textures\dino_run.png" />
+    <Image Include="assets\textures\flying_dino_evil.png" />
+    <Image Include="assets\textures\game_over.png" />
+    <Image Include="assets\textures\ground.png" />
+    <Image Include="assets\textures\large_cacti.png" />
+    <Image Include="assets\textures\reset_button.png" />
+    <Image Include="assets\textures\small_cacti.png" />
+    <Image Include="assets\textures\sprites.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

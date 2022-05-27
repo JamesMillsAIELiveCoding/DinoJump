@@ -3,6 +3,8 @@
 #include "IEntity.h"
 #include "RayGizmos.h"
 
+#include <raylib.h>
+
 EntityArray Physics::m_entities;
 
 void Physics::AddEntity(IEntity* _entity)
@@ -18,6 +20,14 @@ void Physics::Cleanup()
 	}
 
 	m_entities.clear();
+}
+
+bool Physics::OverlapsPoint(Vector2 _point, Rectangle& _rect)
+{
+	return _point.x < _rect.x + _rect.width &&
+		_point.x > _rect.x &&
+		_point.y < _rect.y + _rect.height &&
+		_point.y > _rect.y;
 }
 
 void Physics::UpdateCollisions()
