@@ -6,6 +6,7 @@
 
 #include "TextureRegistry.h"
 #include "SoundRegistry.h"
+#include "FontRegistry.h"
 
 #include "Config.h"
 #include "GameStateManager.h"
@@ -31,6 +32,7 @@ void Application::Load()
 
     textureRegistry.Load();
     soundRegistry.Load();
+    fontRegistry.Load();
     SetupStates();
 }
 
@@ -65,6 +67,7 @@ void Application::Unload()
 {
     textureRegistry.Unload();
     soundRegistry.Unload();
+    fontRegistry.Unload();
 
 	CloseWindow();
 }
