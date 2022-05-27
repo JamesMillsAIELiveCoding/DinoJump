@@ -19,7 +19,7 @@ void Player::Load()
 	m_animationSpeed = config.GetFloatValue(PLAYER_CATEGORY, "animationSpeed");
 	m_jumpPower = config.GetFloatValue(PLAYER_CATEGORY, "jumpPower");
 
-	m_groundHeight = m_state->app->windowHeight - m_texture.height - 30;
+	m_groundHeight = (float)m_state->app->windowHeight - (float)m_texture.height - 30;
 }
 
 void Player::Update(float _dt)
@@ -27,14 +27,14 @@ void Player::Update(float _dt)
 	UpdateVerticalVelocity(_dt);
 	UpdateAnimation(_dt);
 
-	m_pos.y = fmin(m_pos.y, m_groundHeight);
+	m_pos.y = (float)fmin(m_pos.y, m_groundHeight);
 	m_grounded = m_groundHeight - m_pos.y < 0.001f && m_groundHeight - m_pos.y > -0.001f;
 }
 
 void Player::Draw()
 {
 	Rectangle srcRect;
-	srcRect.x = m_frameIndex * 80 + 8 * m_frameIndex;
+	srcRect.x = (float)m_frameIndex * 80 + 8 * (float)m_frameIndex;
 	srcRect.y = 0;
 	srcRect.width = 80;
 	srcRect.height = 86;
@@ -55,17 +55,17 @@ void Player::Unload()
 Rectangle* Player::GetCollider()
 {
 	Rectangle srcRect;
-	srcRect.x = m_frameIndex * 80 + 8 * m_frameIndex;
+	srcRect.x = (float)m_frameIndex * 80 + 8 * (float)m_frameIndex;
 	srcRect.y = 0;
 	srcRect.width = 80;
 	srcRect.height = 86;
-	Rectangle destRect;
-	destRect.x = m_pos.x;
-	destRect.y = m_pos.y;
-	destRect.width = srcRect.width * m_size.x;
-	destRect.height = srcRect.height * m_size.x;
+	Rectangle* destRect = new Rectangle();
+	destRect->x = m_pos.x;
+	destRect->y = m_pos.y;
+	destRect->width = srcRect.width * m_size.x;
+	destRect->height = srcRect.height * m_size.x;
 
-	return &destRect;
+	return destRect;
 }
 
 void Player::OnCollision(IEntity* _other)

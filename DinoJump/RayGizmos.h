@@ -33,8 +33,8 @@ struct RayGizmos
 	{
 		if (draw)
 		{
-			DrawCircle(_position.x, _position.y, _radius, color);
-			DrawCircle(_position.x + borderSize, _position.y + borderSize, _radius - borderSize * 2, RAYWHITE);
+			DrawCircle((int)_position.x, (int)_position.y, _radius, color);
+			DrawCircle((int)_position.x + borderSize, (int)_position.y + borderSize, _radius - borderSize * 2, RAYWHITE);
 		}
 	}
 

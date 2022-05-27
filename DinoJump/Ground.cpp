@@ -26,8 +26,8 @@ void Ground::Draw()
 	Rectangle srcRect;
 	srcRect.x = 0;
 	srcRect.y = 0;
-	srcRect.width = m_texture.width;
-	srcRect.height = m_texture.height;
+	srcRect.width = (float)m_texture.width;
+	srcRect.height = (float)m_texture.height;
 	Rectangle destRect;
 	destRect.x = m_pos.x;
 	destRect.y = m_pos.y;

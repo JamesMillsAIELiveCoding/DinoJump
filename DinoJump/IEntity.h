@@ -8,8 +8,8 @@ class IGameState;
 class IEntity
 {
 public:
-	IEntity(Vector2 _pos, Vector2 _size, Texture2D _color, IGameState* _state, float _rotation) 
-		: m_pos(_pos), m_size(_size), m_texture(_color), m_state(_state), m_rotation(_rotation) 
+	IEntity(Vector2 _pos, Vector2 _size, Texture2D _texture, IGameState* _state, float _rotation) 
+		: m_pos(_pos), m_size(_size), m_texture(_texture), m_state(_state), m_rotation(_rotation) 
 	{
 	}
 

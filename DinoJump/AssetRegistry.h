@@ -40,10 +40,7 @@ inline AssetRegistry<REGISTRY_ITEM>::AssetRegistry(string _assetFolder)
 template<typename REGISTRY_ITEM>
 inline REGISTRY_ITEM AssetRegistry<REGISTRY_ITEM>::GetAsset(AssetID _id) const
 {
-	if (m_registry.find(_id) != m_registry.end())
-	{
-		return m_registry.at(_id);
-	}
+	return m_registry.at(_id);
 }
 
 template<typename REGISTRY_ITEM>

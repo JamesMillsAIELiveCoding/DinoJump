@@ -31,7 +31,7 @@ float Config::GetFloatValue(string _group, string _id)
 
 		if (set.find(_id) != set.end())
 		{
-			return atof(set[_id].c_str());
+			return (float)atof(set[_id].c_str());
 		}
 	}
 
