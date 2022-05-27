@@ -35,6 +35,7 @@ Application::~Application()
 void Application::Load()
 {
     InitWindow(windowWidth, windowHeight, config.GetTextValue(PROGRAM_CATEGORY, "name"));
+    InitAudioDevice();
     SetTargetFPS(60);
 
     textureRegistry.Load();
@@ -76,6 +77,7 @@ void Application::Unload()
     soundRegistry.Unload();
     fontRegistry.Unload();
 
+    CloseAudioDevice();
 	CloseWindow();
 }
 
